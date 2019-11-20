@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<p>Hi</p>
+<head>
+</head>
+ <form th:action="@{/update2}"  method="POST">
+         <table>
+            <tr>
+               <td>Name</td>
+               <td><input type="text" th:name="Name" /></td>
+               
+            </tr>
+            <tr>
+               <td>Weight</td>
+               <td><input type="text" th:name="Weight" /> </td>
+               
+            </tr>
+           
+         </table>
+         <input type="submit"/>
+      </form>
+
+
+<a th:href = @{hello}>Back to home</a>
+</html>

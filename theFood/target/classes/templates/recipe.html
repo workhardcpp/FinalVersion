@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head >
+        
+        <style>
+    body { text-shadow: 2px 2px 8px #FF0000; 
+    background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/h5l5VL-eWLg6AuOVbe98ag/o.jpg");
+	background-size: 1350px;}
+    </style>
+        
+        
+    </head>
+    <body>
+        
+        <h1 th:inline="text" >
+   [[${title}]]
+</h1>
+        
+        <img src= th:src="@{img}" >
+        
+        
+         
+         
+          <h3>Ingredients </h3>
+        <th:block th:each="meat: ${Meats}">
+            <a th:href="@{/(id=${meat})}">  [[${meat}]]</a> <br/>
+        </th:block>
+        
+        
+        
+     <small th:text="${desc}" >Subtitle</small>
+     
+    </body>
+</html>

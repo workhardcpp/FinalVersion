@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head name=[[${#httpServletRequest.remoteUser}]]>
+        <title name="hi">[[${#httpServletRequest.remoteUser}]]</title>
+    </head>
+    <body>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        
+     <form th:action="@{/register}"  method="POST">
+        
+        <h2>Vegatable</h2>
+        <th:block th:each="vege: ${Veges}">
+            <a th:href="@{/(id=${vege})}"> Vegetables [[${vege}]]</a> <br/>
+            <td><input type="text" /></td>
+            <td><input type="text" th:field="*{userName}" /></td>  
+        </th:block>
+        
+       <!–– and the comment closes with   
+        <h3>Meat</h3>
+        <th:block th:each="meat: ${Meats}">
+            <a th:href="@{/(id=${meat})}"> Meat [[${meat}]]</a> <br/>
+            <td><input type="text" th:field="*{userName}" /></td>
+        </th:block>
+        
+        <h4>Condiment</h4>
+        
+        <th:block th:each="cond: ${Conds}">
+            <a th:href="@{/(id=${cond})}"> Condiment: [[${cond}]]</a> <br/>
+            <td><input type="text" th:field="*{userName}" /></td>
+        </th:block>
+        
+        ––>
+        
+        
+     </form>
+     
+     <!––
+     <h5>Recepie you can build</h5>
+     <th:block th:each="userId: ${userIds}">
+    <a th:href="@{/(id=${userId})}"> User [[${userId}]]</a> <br/>
+    </th:block>
+         ––>
+        
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
+</html>

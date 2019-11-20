@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    
+    
+  <head>
+    
+ </head>
+  <body>
+  <p>Click <a th:href="@{/login}">Log in</a> to login you account.</p>
+  
+  <p>Click <a th:href="@{/register}">Register</a> .</p>
+  
+  <p>Click <a th:href="@{/hello}">Home page</a> to see a greeting.</p>
+  
+  <p>Click <a th:href="@{/upload}">click to upload a recepe</a> to see a greeting.</p>
+  
+  
+  
+
+  
+  
+    <div class="search">
+      <form th:action="@{/home}" method="post">
+        <input type="text" th:name="search"/> 
+        <input type="submit"/> 
+      </form>
+    </div>
+    
+    
+    <th:block th:each="userId: ${userIds}">
+    
+    <a th:href="'/recipe/'+${userId}"><p th:text="${userId}"></p></a>
+    </th:block>
+  </body>
+  
+</html>

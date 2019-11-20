@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head class= [${#httpServletRequest.remoteUser}] name=[[${#httpServletRequest.remoteUser}]]>
+        <title th:name="hi">[[${#httpServletRequest.remoteUser}]]</title>
+        
+        
+           <style>
+    h1,h2,h3,h4,h5{color: blue;
+    text-shadow: 2px 2px 4px #000000;}
+    form{text-shadow: 2px 2px 8px #FF0000;}
+    body { background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/l9-hq_aT-TYGnur61uBnVg/o.jpg"); 
+	background-size: 1350px}
+    </style>
+        
+        
+    </head>
+    <body>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <a th:href="@{update}">update<a/>
+        
+     <form th:action="@{hello}"  method="POST">
+        
+         
+        <h3>Food you have</h3>
+        <th:block th:each="meat: ${Meats}">
+            <p>  [[${meat}]]</p> <br/>
+        </th:block>
+        
+        
+     <input type="submit" value="Update" />
+        
+        
+     </form>
+     
+     <h5>Recepie you can build</h5>
+     <th:block th:each="cond: ${Conds}">
+     
+    
+    <a th:href="'/recipe/'+${cond}"><p th:text="${cond}"></p></a>
+    
+     
+    </th:block>
+      
+        
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </body>
+</html>
