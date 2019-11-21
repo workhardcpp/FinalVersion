@@ -17,6 +17,7 @@ public class foodRecipe implements Comparable<foodRecipe> {
 	public int priority = 0;
 	
 	
+	
 	public foodRecipe() {
 		
 	}

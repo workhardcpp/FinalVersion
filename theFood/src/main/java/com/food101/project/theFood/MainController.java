@@ -121,7 +121,7 @@ public class MainController {
         */
 	   model.addAttribute("title", r.getName());
 	   model.addAttribute("desc", r.getDescription());
-	   model.addAttribute("img", "http://www.exampleimagehost.com/my-cute-dog.jpg");
+	   model.addAttribute("img", r.url);
 	   System.out.print(r.getDescription());
 	   
 	   return "recipe";

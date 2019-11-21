@@ -17,12 +17,12 @@
     </head>
     <body>
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <a th:href="@{update}">update<a/>
+        <a th:href="@{update}">Bought new Stuffs? Click here<a/>
         
      <form th:action="@{hello}"  method="POST">
         
          
-        <h3>Food you have</h3>
+        <h3>Stuffs in your Fridge</h3>
         <th:block th:each="meat: ${Meats}">
             <p>  [[${meat}]]</p> <br/>
         </th:block>
