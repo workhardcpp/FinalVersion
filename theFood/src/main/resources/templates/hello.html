@@ -5,34 +5,83 @@
         <title th:name="hi">[[${#httpServletRequest.remoteUser}]]</title>
         
         
-           <style>
-    h1,h2,h3,h4,h5{color: blue;
-    text-shadow: 2px 2px 4px #000000;}
-    form{text-shadow: 2px 2px 8px #FF0000;}
-    body { background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/l9-hq_aT-TYGnur61uBnVg/o.jpg"); 
-	background-size: 1350px}
+   <style>
+    body { text-align: center; 
+    background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/l9-hq_aT-TYGnur61uBnVg/o.jpg"); 
+	background-size: 2000px}
+    
+div {
+
+  background-color: lightgrey;
+  width: 1000px;
+  border: 15px light blue;
+  opacity:0.7;
+  border: center
+  padding: 50px;
+  margin: 20px;
+
+    margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  	
+     .registerbtn {
+  background-color: gray;
+  color: white;
+  padding: 10px 10px;
+  margin: 4px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;}
+
+    
     </style>
-        
         
     </head>
     <body>
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <a th:href="@{update}">Bought new Stuffs? Click here<a/>
+       
+       <div>
+       
+      
         
-     <form th:action="@{hello}"  method="POST">
+        
+       
         
          
         <h3>Stuffs in your Fridge</h3>
+        
+      
+        
         <th:block th:each="meat: ${Meats}">
             <p>  [[${meat}]]</p> <br/>
         </th:block>
         
         
-     <input type="submit" value="Update" />
         
+         
+      
+      
+      <a th:href="@{update}"  class="registerbtn">Bought new Stuffs? Click here<a/>
         
+     <form th:action="@{hello}"  method="POST">
+            
      </form>
      
+      <input type="submit" class="registerbtn" value="Update" />
+         
+        </div>
+        
+        
+    
+        
+     
+     
+     
+     <div >
      <h5>Recepie you can build</h5>
      <th:block th:each="cond: ${Conds}">
      
@@ -44,7 +93,9 @@
       
         
         <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
+            <input type="submit" class="registerbtn" value="Sign Out"/>
         </form>
+        
+        <div>
     </body>
 </html>

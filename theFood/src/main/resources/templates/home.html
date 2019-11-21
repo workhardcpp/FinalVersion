@@ -3,33 +3,165 @@
     
     
   <head>
-    
+            <style>
+body {
+margin: 0;
+font-family: "Times New Roman", Times, serif;
+}
+
+.topnav {
+ background-color: gray;
+overflow: hidden;
+
+}
+
+.topnav a {
+float: left;
+display: block;
+color: black;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 25px;
+}
+
+
+
+.topnav-right {
+
+float: right;
+
+}
+
+
+
+.topnav a:hover {
+
+background-color: #ddd;
+
+color: black;
+
+}
+
+
+
+.topnav .search-container {
+
+float: middle;
+
+
+
+}
+
+.topnav input[type=text] {
+
+padding: 6px;
+
+margin-top: 8px;
+
+font-size: 17px;
+
+border: none;
+
+}
+
+.topnav .search-container button {
+
+float: right;
+
+padding: 6px 10px;
+
+margin-top: 8px;
+
+margin-right: 16px;
+
+background: #ddd;
+
+font-size: 17px;
+
+border: none;
+
+cursor: pointer;
+
+}
+
+.topnav .search-container button:hover {
+
+background: #ccc;
+
+}
+
+
+
+
+
+
+
+
+input[type=text] {
+
+width: 300px;
+
+box-sizing: border-box;
+
+border: 2px solid #ccc;
+
+border-radius: 4px;
+
+padding: 10px;
+
+-webkit-transition: width 0.4s ease-in-out;
+
+transition: width 0.4s ease-in-out;
+
+}
+
+p{color: blue; }
+
+
+
+
+    </style>
  </head>
   <body>
-  <p>Click <a th:href="@{/login}">Log in</a> to login you account.</p>
   
-  <p>Click <a th:href="@{/register}">Register</a> .</p>
+  <div class="topnav">
+    <a th:href="@{/hello}">Home page</a>
   
-  <p>Click <a th:href="@{/hello}">Home page</a> to see a greeting.</p>
+  <a th:href="@{/allFood}">View Recipes</a>
   
-  <p>Click <a th:href="@{/allFood}">To see all recipe</a> </p>
   
+  <div class="topnav-right">
+  
+  
+  <a th:href="@{/login}">Log in</a> 
+  
+  <a th:href="@{/register}">Register</a>
+  
+
+  </div>
+  
+  </div>
    
+
 
   
   
-    <div class="search">
+    <div class="search" style="padding:250px 800px">
+    <img src="https://checkmydream.com/img/origin/1563391469-980_refrigerator450450.jpg" alt="Trulli" width="290" height="290">
+ 
       <form th:action="@{/home}" method="post">
         <input type="text" th:name="search"/> 
         <input type="submit"/> 
       </form>
-    </div>
+
     
     
     <th:block th:each="userId: ${userIds}">
     
     <a th:href="'/recipe/'+${userId}"><p th:text="${userId}"></p></a>
     </th:block>
+        </div>
   </body>
   
 </html>

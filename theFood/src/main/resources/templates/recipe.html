@@ -3,35 +3,59 @@
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head >
         
-        <style>
-    body { text-shadow: 2px 2px 8px #FF0000; 
-    background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/h5l5VL-eWLg6AuOVbe98ag/o.jpg");
-	background-size: 1350px;}
-    </style>
+             <style>
+          h1,h3,h4,h5{color: black;}
+    body {  text-align: center;
+    background-image: url("https://s3-media0.fl.yelpcdn.com/bphoto/l9-hq_aT-TYGnur61uBnVg/o.jpg "); 
+	background-size: 2000px}
+
+ div {
+
+  background-color: lightgrey;
+  width: 1000px;
+  border: 15px solid green;
+  border: center
+  padding: 50px;
+  margin: 20px;
+
+    margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+         div.a {
+  font-size: 30px;
+}
+
+     
+        
+        
+        </style>
+     
         
         
     </head>
     <body>
     
-    
-        <a th:href="@{/}">Go back to home<a/>
+    <div>
         
+          <a th:href="@{/}">Go back to home<a/>
         
         <h1 th:inline="text" >
    [[${title}]]
 </h1>
         
-        <img src= th:src="@{img}" >
         
+        <img th:src="@{${img}}"/>
         
           <h3>Ingredients </h3>
         <th:block th:each="meat: ${Meats}">
-            <a th:href="@{/(id=${meat})}">  [[${meat.Name}]] Measurement: [[${meat.Weight}]]</a> <br/>
+            <a th:href="@{/(id=${meat})}">  [[${meat.Weight}]]  [[${meat.Name}]] </a> <br/>
         </th:block>
-        
-        
-        
+        <div class = "a">
      <small th:text="${desc}" >Subtitle</small>
-     
+     </div>
+     </div>
     </body>
 </html>
