@@ -41,7 +41,6 @@ public class Meat //extends Food
 	public void setName(String Name) {
 		this.Name = Name;
 	}
-
 	
 
 	public String getDate() {

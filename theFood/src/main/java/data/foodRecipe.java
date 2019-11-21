@@ -33,7 +33,7 @@ public class foodRecipe implements Comparable<foodRecipe> {
 		Description = descp;
 	}
 	
-	public void ComparebyIngredient(List<String> in) {
+	public int ComparebyIngredient(List<String> in) {
 		if(meatIngredient!=null) {
 		for(int i=0;i<meatIngredient.size();i++) {
 			if(in.contains(meatIngredient.get(i).getName().toLowerCase())) {
@@ -41,13 +41,13 @@ public class foodRecipe implements Comparable<foodRecipe> {
 			}
 		}
 		}
-		
+		int x =priority;
+		priority =0;
+		return x;
 	}
 	
 	
-	
-	
-	public void ComparebyFood(List<Meat> in) {
+	public int ComparebyFood(List<Meat> in) {
 		if(meatIngredient!=null) {
 		for(int i=0;i<meatIngredient.size();i++) {
 			if(in.contains(meatIngredient.get(i))) {
@@ -55,6 +55,9 @@ public class foodRecipe implements Comparable<foodRecipe> {
 			}
 		}
 		}
+		int x =priority;
+		priority =0;
+		return x;
 		/*
 		if(conIngredient!=null){
 		for(int i=0;i<conIngredient.size();i++) {

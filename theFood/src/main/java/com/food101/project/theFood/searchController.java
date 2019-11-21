@@ -37,6 +37,31 @@ import supply.Search;
 
 @Controller
 public class searchController {
+	
+	
+	@RequestMapping("allFood")
+    public String index3(
+        Model model
+    ) throws InterruptedException, ExecutionException {
+		
+		List<foodRecipe> list = new ArrayList<foodRecipe>();
+
+
+		Firestore db1 = FirestoreClient.getFirestore();
+		ApiFuture<QuerySnapshot> future = db1.collection("foodRecipe").get();
+
+
+			List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+				
+				for (DocumentSnapshot document : documents) {
+					  list.add(document.toObject(foodRecipe.class));
+					}
+		
+		model.addAttribute("userIds", list);
+		
+		
+		return "home";
+    }
 
 	@RequestMapping("home")
     public String index(

@@ -148,7 +148,8 @@ public void setCountryCode(String countryCode) {
 
 
 
-public List<Meat> getFoodList() {
+public List<Meat> getFoodList()  {
+	//updateRecipe();
 	return meatList;
 }
 
@@ -170,14 +171,28 @@ public void updateFood(Meat food) throws InterruptedException, ExecutionExceptio
 	updateRecipe();
 }
 
-private void updateRecipe() throws InterruptedException, ExecutionException {
+public void updateRecipe() throws InterruptedException, ExecutionException {
 	Search s = new Search();
-	setRecipeList(s.performSearch(getFoodList()));	
+	String n="";
+	for(int i=0;i<getFoodList().size();i++) {
+		n=n+getFoodList().get(i).getName()+",";
+	}
+	setRecipeList(s.performSearch(n));
+	//setRecipeList(s.performSearch(getFoodList()));	
 }
 
 
-public List<foodRecipe> getRecipeList() {
-	return recipeList;
+public List<foodRecipe> getRecipeList() throws InterruptedException, ExecutionException {
+	Search s = new Search();
+	
+	
+	String n="";
+	for(int i=0;i<getFoodList().size();i++) {
+		n=n+getFoodList().get(i).getName()+",";
+	}
+	return s.performSearch(n);
+	//return s.performSearch(getFoodList());
+	//return recipeList;
 }
 
 

@@ -101,24 +101,13 @@ public class MainController {
 	   foodRecipe r = s.findRecipe(userId);
 	   
 	  // model.addAttribute("Veges", r.vegeIngredient);
+	   
+	   
 	   model.addAttribute("Meats", r.meatIngredient);
 	 //  model.addAttribute("Conds", r.conIngredient);
 	   
 	   
-	   /*
-        <h2>Vegatable</h2>
-        <th:block th:each="vege: ${Veges}">
-            <a th:href="@{/(id=${vege})}"> Vegetables [[${vege}]]</a> <br/>
-            <td><input type="text"  th:placeholder="${vege.weight}" maxlength="4" size="4"></td>
-        </th:block>
-        
-        <h4>Condiment</h4>
-        
-        <th:block th:each="cond: ${Conds}">
-            <a th:href="@{/(id=${cond})}"> Condiment: [[${cond}]]</a> <br/>
-            <td><input type="text"  th:placeholder="${cond.weight}" maxlength="4" size="4"></td>
-        </th:block>
-        */
+	   
 	   model.addAttribute("title", r.getName());
 	   model.addAttribute("desc", r.getDescription());
 	   model.addAttribute("img", r.url);
@@ -216,9 +205,7 @@ AppUser user = search.findUserbyUsername(username);
 				}
 				Search search = new Search();
 				AppUser user = search.findUserbyUsername(username);
-
-
-						
+				
 					      Meat[] food = new Meat[2];//s.findFood("xx1");
 					      food[0] = new Meat("tomato", "10");
 					      food[1] = new Meat("beef","33");

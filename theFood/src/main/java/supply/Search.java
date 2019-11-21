@@ -51,13 +51,19 @@ ApiFuture<QuerySnapshot> future = db1.collection("foodRecipe").get();
 		}
 		*/
 		
+		List<foodRecipe> list2 = new ArrayList<foodRecipe>();
+
 		for(int i=0;i< list.size();i++) {
-			list.get(i).ComparebyIngredient(in);
+			
+			if(list.get(i).ComparebyIngredient(in)>0) {
+				list2.add(list.get(i));
+				System.out.println(list.remove(i));
+			}
 		}
 		
-		Collections.sort(list);
+		Collections.sort(list2);
 		
-		return list;
+		return list2;
 	}
 
 
@@ -83,8 +89,14 @@ List<QueryDocumentSnapshot> documents = future.get().getDocuments();
 	}
 	*/
 	
+	//List<foodRecipe> list2 = new ArrayList<foodRecipe>();
+
 	for(int i=0;i< list.size();i++) {
-		list.get(i).ComparebyFood(in);
+		
+		if(list.get(i).ComparebyFood(in)>0) {
+			//list2.add(list.get(i));
+			//System.out.println(list.remove(i));
+		}
 	}
 	
 	Collections.sort(list);
